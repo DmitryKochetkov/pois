@@ -1,0 +1,35 @@
+#lang racket
+(display "Перевод из минут в секунды")
+(display "\n")
+(display "Введите количество минут (м)")
+(define m(read))
+(define (to_seconds x)
+  (* x 60))
+(display (format "Секунд: ~a" (to_seconds m)))
+
+
+(display "\n")
+(display "Определение високосности года \n")
+(display "Введите год => ")
+(define year(read))
+(define (isLeap year)
+  (
+   cond ((= (remainder year 400) 0) (display "Год високосный"))
+        ((= (remainder year 100) 0) (display "Год невисокосный"))
+        ((= (remainder year 4) 0) (display "Год високосный"))
+        (else (display "Год невисокосный"))
+   )
+  )
+(isLeap year)
+(display "\n")
+
+(display "Вычисление стоимости покупки с учетом скидки \n")
+(display "Введите сумму покупки => ")
+(define price(read))
+(define (price-with-sale price)
+  (
+   cond ((> price 1000) (* price 0.9))
+        (else price)
+  )
+  )
+(display (format "Сумма покупки = ~a" (price-with-sale price)))
